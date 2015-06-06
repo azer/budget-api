@@ -1,0 +1,20 @@
+{
+  "name": "budget-api",
+  "version": "0.0.0",
+  "description": "Budget Planning API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "url": "git@github.com:azer/budget-api.git",
+    "type": "git"
+  },
+  "author": "azer",
+  "license": "BSD",
+  "dependencies": {
+    "circle": "0.0.9",
+    "level-json": "^1.0.0",
+    "unique-now": "0.0.1"
+  }
+}

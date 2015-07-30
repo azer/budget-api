@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function add (reply, match) {
-  set(now(), match.params.title, match.params.amount, reply);
+  set(now(), match.params.title, match.params.amount, match.params.leftAmount, reply);
 }
 
 function remove (reply, match) {
@@ -20,7 +20,7 @@ function remove (reply, match) {
 }
 
 function change (reply, match) {
-  set(match.params.id, match.params.title, match.params.amount, reply);
+  set(match.params.id, match.params.title, match.params.amount, match.params.leftAmount, reply);
 }
 
 function list (reply) {
@@ -39,10 +39,11 @@ function list (reply) {
 }
 
 
-function set (id, title, amount, callback) {
+function set (id, title, amount, leftAmount, callback) {
   var rec = {
     title: title,
-    amount: Number(amount)
+    amount: Number(amount),
+    leftAmount: Number(leftAmount)
   };
 
   io.set(id, rec, function (err) {
@@ -51,7 +52,8 @@ function set (id, title, amount, callback) {
     callback(undefined, {
       id: id,
       title: title,
-      amount: amount
+      amount: amount,
+      leftAmount: leftAmount
     });
   });
 }
